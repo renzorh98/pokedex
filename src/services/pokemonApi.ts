@@ -5,8 +5,10 @@ const service = axios.create({
   baseURL: constantes.POKEMON_API_SERVER,
 });
 
-
-
-export const get = async (url: string, params: any = {}, options: AxiosRequestConfig = {}) => {
-  return service.get(url, {...options, params});
-}
+export const get = async (
+  url: string,
+  params: any = {},
+  options: AxiosRequestConfig = {}
+): Promise<any> => {
+  return service.get(url, { ...options, params });
+};
