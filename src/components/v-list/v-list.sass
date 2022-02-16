@@ -1,0 +1,43 @@
+@import "src/styles/variables.sass"
+
+$line-height-26: 1.625rem
+$button-margin: 8px 10px
+$list-item-height: 60px
+$bradius: 5px
+
+.list-container
+  display: inline-flex
+  flex-direction: column
+  width: $per-100
+  gap: 10px
+
+  .list-item
+    width: $per-100
+    height: $list-item-height
+    background: $white
+    border-radius: $bradius
+
+    .item-desc
+      float: left
+      padding-left: 20px
+      height: $per-100
+      display: flex
+      align-items: center
+
+      .name-text
+        display: flex
+        align-items: center
+        text-transform: capitalize
+        font-style: normal
+        font-weight: 500
+        font-size: $font-22
+        line-height: $line-height-26
+
+
+
+    .item-button
+      margin: $button-margin
+      float: right
+
+.is-button
+  cursor: pointer

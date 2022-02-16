@@ -4,7 +4,7 @@ import axios, { AxiosRequestConfig } from "axios";
 const service = axios.create({
   baseURL: constantes.POKEMON_API_SERVER,
 });
-
+/* eslint-disable */
 export const get = async (
   url: string,
   params: any = {},

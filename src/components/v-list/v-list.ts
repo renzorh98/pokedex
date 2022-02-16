@@ -1,26 +1,34 @@
 import { defineComponent } from "vue";
-import { IPokemon } from "@/models/pokemon";
+import { Pokemon } from "@/models/pokemon";
 
 export default defineComponent({
   props: {
     list: {
-      type: Array,
+      type: Array(Pokemon),
       default: () => [],
     },
   },
-  emits: ["event-details"],
+  emits: ["updateItem"],
   setup(props, { emit }) {
+
+    const updateItem = (item: Pokemon) => {
+     emit('updateItem',item)
+    };
+
+
     const setFavorite = (id: number) => {
       //do something whit id
     };
 
-    const seeDetails = (pokemon: IPokemon) => {
-      emit("event-details", pokemon);
+    const seeDetails = (pokemon: Pokemon) => {
+      //do something whit id
+
     };
 
     return {
       setFavorite,
       seeDetails,
+      updateItem,
     };
   },
 });

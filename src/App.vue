@@ -7,6 +7,9 @@
 </template>
 
 <style lang="scss">
+html{
+  background: #F9F9F9;
+}
 #app {
   font-family: "Lato";
   -webkit-font-smoothing: antialiased;

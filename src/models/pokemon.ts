@@ -1,31 +1,28 @@
 export class Pokemon {
-  id: number;
+  // id: number;
   name: string;
-  weight: number;
-  height: number;
-  types: Type[];
+  url: string;
+  // weight: number;
+  // height: number;
+  // types: Type[];
+  // image: string;
   favorite: boolean;
 
   constructor(
-    _id: number,
     _name: string,
-    _weight: number,
-    _height: number,
-    _types: Type[]
+    _url: string,
+    _favorite: boolean,
   ) {
-    this.id = _id;
     this.name = _name;
-    this.weight = _weight;
-    this.height = _height;
-    this.types = _types;
-    this.favorite = false;
+    this.url = _url;
+    this.favorite = _favorite;
   }
 }
 
-export class Type {
-  name: string;
-
-  constructor(_name: string) {
-    this.name = _name;
-  }
-}
+// export class Type {
+//   name: string;
+//
+//   constructor(_name: string) {
+//     this.name = _name;
+//   }
+// }
