@@ -8,27 +8,19 @@ export default defineComponent({
       default: () => [],
     },
   },
-  emits: ["updateItem"],
+  emits: ["updateItem", "setItem"],
   setup(props, { emit }) {
-
-    const updateItem = (item: Pokemon) => {
-     emit('updateItem',item)
+    const setFavorite = (index: number) => {
+      emit("updateItem", index);
     };
 
-
-    const setFavorite = (id: number) => {
-      //do something whit id
-    };
-
-    const seeDetails = (pokemon: Pokemon) => {
-      //do something whit id
-
+    const seeDetails = (url: string) => {
+      emit("setItem", url);
     };
 
     return {
       setFavorite,
       seeDetails,
-      updateItem,
     };
   },
 });

@@ -1,11 +1,6 @@
 export class Pokemon {
-  // id: number;
   name: string;
   url: string;
-  // weight: number;
-  // height: number;
-  // types: Type[];
-  // image: string;
   favorite: boolean;
 
   constructor(

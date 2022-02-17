@@ -13,7 +13,8 @@ export default createStore({
       state.favoritesList.push(data);
     },
     [types.DELETE_FAVORITE_POKEMON]: (state, data) => {
-      state.favoritesList.splice(data, 1);
+      const index = state.favoritesList.findIndex(element => element.name === data.name)
+      state.favoritesList.splice(index, 1);
     },
   },
   getters: {
