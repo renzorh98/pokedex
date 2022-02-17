@@ -21,10 +21,11 @@ $cero: 0.001px
   line-height: $line-height-22
   font-style: normal
   cursor: pointer
-  &.is-big
-    width: 150px
 
   &.is-normal
+    width: 155px
+
+  &.is-default
     background: $ligth-red
 
     &:active
@@ -35,4 +36,15 @@ $cero: 0.001px
 
   &.is-disabled
     background: $gray
+
+@media screen and (max-width: 700px)
+  .button
+    &.is-big
+      width: 150px
+
+
+@media screen and (min-width: 700px)
+  .button
+    &.is-big
+      width: 275px
 

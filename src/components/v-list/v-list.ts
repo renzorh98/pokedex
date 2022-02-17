@@ -1,10 +1,14 @@
 import { defineComponent } from "vue";
 import { Pokemon } from "@/models/pokemon";
+import VButton from "@/components/v-button/v-button.vue";
 
 export default defineComponent({
+  components:{
+    VButton,
+  },
   props: {
     list: {
-      type: Array(Pokemon),
+      type: Array,
       default: () => [],
     },
   },

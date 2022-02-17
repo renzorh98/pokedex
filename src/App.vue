@@ -1,14 +1,15 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view />
 </template>
 
 <style lang="scss">
 html{
   background: #F9F9F9;
+  overflow-y: scroll;
+}
+body{
+  background: #F9F9F9;
+  margin: 0px;
 }
 #app {
   font-family: "Lato";

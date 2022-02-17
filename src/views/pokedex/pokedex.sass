@@ -1,0 +1,32 @@
+@import "src/styles/variables.sass"
+
+.view-wrap
+  .content-wrap
+    display: flex
+    flex-direction: column
+    margin-top: 35px
+    gap: 40px
+
+.bottom-nav
+  position: fixed
+  direction: ltr
+  display: flex
+  justify-content: center
+  bottom: 0
+  width: 100%
+  z-index: 2
+  height: 80px
+  background: $white
+  box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05)
+
+  .button-container
+    display: inline-flex
+    align-items: center
+
+@media screen and (max-width: 700px)
+  .button-container
+    gap: 15px
+
+@media screen and (min-width: 700px)
+  .button-container
+    gap: 20px

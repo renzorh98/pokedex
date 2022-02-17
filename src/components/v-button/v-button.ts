@@ -10,7 +10,7 @@ export default defineComponent({
       validator: (value: ButtonSize) => {
         if ([undefined, "normal", "big"].indexOf(value) === -1) {
           console.warn(
-            `v-button: Invalid '${value}' size. Should be big or undefined`
+            `v-button: Invalid '${value}' size. Should be normal, big, or undefined`
           );
           return false;
         }
@@ -19,11 +19,11 @@ export default defineComponent({
     },
     state: {
       type: String as PropType<StateType>,
-      default: "normal",
+      default: "default",
       validator: (value: StateType) => {
-        if (["normal", "active", "disabled"].indexOf(value) === -1) {
+        if (["default", "active", "disabled"].indexOf(value) === -1) {
           console.warn(
-            `v-button: Invalid '${value}' state. Should be normal, active or disabled`
+            `v-button: Invalid '${value}' state. Should be default, active or disabled`
           );
           return false;
         }

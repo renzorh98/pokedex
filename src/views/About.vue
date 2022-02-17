@@ -8,6 +8,17 @@
     <img src="../assets/icons/fav_disabled.svg" />
     <v-button>Get started</v-button>
     <v-button>Go back home</v-button>
+    <br>
+    <br>
+    <img src="@/assets/icons/icon_search.svg"/>
+    <input type="text">
+    <br>
+    <br>
+    <v-control :icon="'icon_search.svg'">
+      <input class="input" type="text">
+    </v-control>
+    <br>
+    <br>
     <v-button size="big"><img src="../assets/icons/icon_all.svg" />&nbsp;&nbsp;All</v-button>
     <v-button size="big" :state="'disabled'"><img src="../assets/icons/icon_all.svg" />&nbsp;&nbsp;All</v-button>
     <v-button size="big" :state="'active'"><img src="../assets/icons/icon_fav.svg" />&nbsp;&nbsp;All</v-button>
@@ -21,6 +32,7 @@ import { defineComponent, onMounted, ref } from "vue";
 import VButton from "@/components/v-button/v-button.vue";
 import PokemonModal from "@/components/pokemon-modal/pokemon-modal.vue";
 import VList from "@/components/v-list/v-list.vue";
+import VControl from "@/components/v-control/v-control.vue";
 import * as pokemonApi from "@/services/pokemonApi";
 import { Pokemon } from "@/models/pokemon";
 import { useStore } from "vuex";
@@ -31,7 +43,8 @@ export default defineComponent({
   components: {
     VButton,
     VList,
-    PokemonModal
+    PokemonModal,
+    VControl,
   },
   setup() {
     const flagModal = ref(false);
@@ -70,7 +83,7 @@ export default defineComponent({
     };
 
     const getPokemons = async () => {
-      await pokemonApi.get("/api/v2/pokemon").then(
+      await pokemonApi.get("/api/v2/pokemon?limit=151&offset=0").then(
         (response) => {
           pokemons.value = response.data.results.map((value: any) => {
             let fav_value = isFavorite(value.name);
@@ -146,3 +159,17 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="sass">
+.input
+  border: none!important
+  padding: 0!important
+  font-family: "Lato"
+
+  height: 22px
+
+
+
+.input:focus
+  outline: none
+</style>

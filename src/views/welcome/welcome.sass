@@ -1,0 +1,40 @@
+@import "src/styles/variables.sass"
+
+.view-wrap
+  .content-wrap
+    margin-top: 83px
+
+    .image-wrap
+      padding-bottom: 60px
+
+    .welcome-text-wrap
+      display: inline-flex
+      flex-direction: column
+      gap: 30px
+      padding-bottom: 50px
+
+      .header-welcome
+        font-style: normal
+        font-weight: bold
+        font-size: $font-26
+        line-height: 1.938rem
+        color: $black
+
+      .description-welcome
+        font-style: normal
+        font-weight: 500
+        font-size: $font-18
+        line-height: 150%
+        text-align: center
+        color: $light-black
+
+
+
+
+@media screen and (max-width: 700px)
+  .view-wrap
+    width: 315px
+
+@media screen and (min-width: 700px)
+  .view-wrap
+    width: 570px
