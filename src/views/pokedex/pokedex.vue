@@ -10,7 +10,7 @@
           <v-list :list="filterList" v-on:updateItem="updateItemByIndex" v-on:setItem="openModal"></v-list>
         </template>
         <template v-if="view">
-          <v-list :list="favList" v-on:updateItem="updateItemByIndex" v-on:setItem="openModal"></v-list>
+          <v-list :list="filterList" v-on:updateItem="updateItemByIndex" v-on:setItem="openModal"></v-list>
         </template>
       </div>
     </div>

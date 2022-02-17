@@ -34,6 +34,11 @@ export default defineComponent({
       return "";
     });
 
+    const copyToClipboard = () => {
+      const pokemon_string=`Name: ${props.pokemon.name}\nWeight: ${props.pokemon.weight/10}\nHeight: ${props.pokemon.height/10}\nTypes: ${ getTypes.value }\nImage: ${ props.pokemon.image }`
+      navigator.clipboard.writeText(pokemon_string)
+    }
+
     const setFavorite = (pokemon: any) => {
       emit("setFavorite", pokemon)
     }
@@ -42,6 +47,7 @@ export default defineComponent({
       emitClose,
       getTypes,
       setFavorite,
+      copyToClipboard,
     };
   },
 });

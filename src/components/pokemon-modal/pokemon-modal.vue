@@ -37,7 +37,7 @@
     </template>
     <template v-slot:footer>
       <div class="pokemon-footer">
-        <v-button class="on-left">Share to my friends</v-button>
+        <v-button class="on-left" v-on:click="copyToClipboard">Share to my friends</v-button>
         <img class="on-right is-button" :src="pokemon.favorite?require('../../assets/icons/fav_active.svg'):require('../../assets/icons/fav_disabled.svg')"
              v-on:click="setFavorite(pokemon)">
       </div>
