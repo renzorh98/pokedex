@@ -3,7 +3,7 @@ El proyecto se encuentra desarrollado bajo el framework de Vue, utilizando Types
 
 Se utilizaron los siguientes paquetes:
 
-1. axios con la finalidad de realizar el consumo de los servicios de pokeapi.co.
+1. vue axios con la finalidad de realizar el consumo de los servicios de pokeapi.co.
 2. vue router es el router principal de vue se usó con la finalidad de permitir la navegación dentro del proyecto.
 3. vuex y vuex-persist con la finalidad de realizar el almacenamiento de la información en el localstorage y el store de vue en búsqueda de simular la persistencia de datos.
 4. vue-jest y test-utils para poder realizar las pruebas unitarias sobre los componentes del proyecto.
