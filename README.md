@@ -1,5 +1,5 @@
 # Pokédex
-El proyecto se encuentra desarrollado bajo el framework de Vue pero utilizando Typescript ya que nos permite desarrollar aplicaciones mucho más robustas, permitiéndonos detectar de manera temprana posibles errores que se suelen cometer durante el desarrollo de aplicaciones web ademas se uso Sass el cual es un preprocesador de CSS ya que según sus características es vital para proyectos a gran escala.
+El proyecto se encuentra desarrollado bajo el framework de Vue, utilizando Typescript para el desarrollo de los scripts de la aplicación ya que nos permite desarrollar aplicaciones mucho más robustas, permitiéndonos detectar de manera temprana posibles errores que se suelen cometer durante el desarrollo de aplicaciones web, Javascript para el desarrollo de las pruebas unitarias y ademas para las hojas de estilo se usó Sass el cual es un preprocesador de CSS ya que según sus características es vital para proyectos a gran escala.
 
 Se utilizaron los siguientes paquetes:
 
