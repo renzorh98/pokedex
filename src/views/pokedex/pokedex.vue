@@ -15,10 +15,10 @@
   <div class="bottom-nav">
     <div class="button-container">
       <v-button size="big" :state="view==='all'?'active':'disabled'" v-on:click="setListContent('all')">
-        <img alt="icono all" src="@/assets/icons/icon_all.svg" />&nbsp;&nbsp;All
+        <img alt="icon all" src="@/assets/icons/icon_all.svg" />&nbsp;&nbsp;All
       </v-button>
       <v-button size="big" :state="view==='favorite'?'active':'disabled'" v-on:click="setListContent('favorite')">
-        <img alt="icono favoritos" src="@/assets/icons/icon_fav.svg" />&nbsp;&nbsp;Favorites
+        <img alt="icon favoritos" src="@/assets/icons/icon_fav.svg" />&nbsp;&nbsp;Favorites
       </v-button>
     </div>
   </div>

@@ -3,7 +3,7 @@
   <div class="control">
     <div class="content-wrap">
       <div class="icon-wrap" v-if="icon">
-        <img alt="icono" :src="require('@/assets/icons/'+icon)" />
+        <img alt="icon" :src="require('@/assets/icons/'+icon)" />
       </div>
       <slot></slot>
     </div>

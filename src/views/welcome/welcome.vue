@@ -3,7 +3,7 @@
   <div class="view-wrap">
     <div class="content-wrap">
       <div class="image-wrap">
-        <img alt="imagen pikachu" src="@/assets/illustrations/welcome/pikachu.svg" />
+        <img alt="image pikachu" src="@/assets/illustrations/welcome/pikachu.svg" />
       </div>
       <div class="welcome-text-wrap">
         <p class="header-welcome">{{ title }}</p>

@@ -17,19 +17,19 @@
     </template>
     <template v-slot:body>
       <div class="pokemon-body">
-        <div class="pokemon-detalle">
+        <div class="pokemon-detail">
           <span class="label">Name:</span>&nbsp;&nbsp;<span data-test="name" class="pokemon-text">{{ pokemon.name }}</span>
         </div>
         <hr class="separator" />
-        <div class="pokemon-detalle">
+        <div class="pokemon-detail">
           <span class="label">Weight:</span>&nbsp;&nbsp;<span data-test="weight" class="pokemon-text">{{ pokemon.weight / 10 }}</span>
         </div>
         <hr class="separator" />
-        <div class="pokemon-detalle">
+        <div class="pokemon-detail">
           <span class="label">Height:</span>&nbsp;&nbsp;<span data-test="height"  class="pokemon-text">{{ pokemon.height / 10 }}</span>
         </div>
         <hr class="separator" />
-        <div class="pokemon-detalle">
+        <div class="pokemon-detail">
           <span class="label">Types:</span>&nbsp;&nbsp;<span data-test="types" class="pokemon-text">{{ getTypes }}</span>
         </div>
         <hr class="separator" />

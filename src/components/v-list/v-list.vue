@@ -16,7 +16,7 @@
             <img
               data-test="favorite"
               v-if="item.favorite"
-              alt="boton favorito"
+              alt="favorite icon"
               class="is-button"
               :src="require('../../assets/icons/fav_active.svg')"
               v-on:click.stop="setFavorite(item.name)"
@@ -24,7 +24,7 @@
             <img
               data-test="no-favorite"
               v-else-if="!item.favorite"
-              alt="boton favorito"
+              alt="favorite icon"
               class="is-button"
               :src="require('../../assets/icons/fav_disabled.svg')"
               v-on:click.stop="setFavorite(item.name)"
