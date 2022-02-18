@@ -6,12 +6,7 @@
         <v-control :icon="'icon_search.svg'">
           <input class="input-control" type="text" placeholder="Search" v-model="filter">
         </v-control>
-        <template v-if="view === 'all'">
-          <v-list :list="filterList" v-on:updateItem="updateItemByIndex" v-on:setItem="openModal"></v-list>
-        </template>
-        <template v-if="view === 'favorite'">
-          <v-list :list="filterList" v-on:updateItem="updateItemByIndex" v-on:setItem="openModal"></v-list>
-        </template>
+        <v-list :list="filterList" v-on:updateItem="updateItemByName" v-on:setItem="openModal"></v-list>
       </div>
     </div>
   </div>

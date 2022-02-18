@@ -13,8 +13,8 @@ export default defineComponent({
   },
   emits: ["updateItem", "setItem"],
   setup(props, { emit }) {
-    const setFavorite = (index: number) => {
-      emit("updateItem", index);
+    const setFavorite = (name: string) => {
+      emit("updateItem", name);
     };
 
     const seeDetails = (url: string) => {

@@ -36,9 +36,9 @@ export default defineComponent({
     });
     const store = useStore();
 
-    const updateItemByIndex = (index: number) => {
+    const updateItemByName = (name: string) => {
       const pokemons_index = pokemons.value.findIndex(
-        (element) => element.name === filterList.value[index].name
+        (element) => element.name === name
       );
 
       updateItem(pokemons_index);
@@ -160,7 +160,7 @@ export default defineComponent({
       view,
       favList,
 
-      updateItemByIndex,
+      updateItemByName,
       openModal,
       updateItemByObject,
       setListContent,

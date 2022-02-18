@@ -55,3 +55,5 @@
 <script lang="ts" src="./pokemon-modal.ts" />
 <!--eslint-disable-->
 <style scoped lang="sass" src="./pokemon-modal.sass" />
+<!--eslint-disable-->
+<style scoped lang="sass" src="../../styles/general.sass" />

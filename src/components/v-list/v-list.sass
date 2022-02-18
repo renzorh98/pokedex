@@ -16,12 +16,14 @@ $list-item-height: 60px
     flex-direction: column
     gap: 10px
     padding-bottom: 25px
+
     .title
       font-style: normal
       font-weight: bold
       font-size: $font-36
       line-height: 2.688rem
       color: $black
+
     .description
       font-style: normal
       font-weight: 500
@@ -35,6 +37,7 @@ $list-item-height: 60px
     height: $list-item-height
     background: $white
     border-radius: $bradius
+    cursor: pointer
 
     .item-desc
       float: left
@@ -53,10 +56,22 @@ $list-item-height: 60px
         line-height: $line-height-26
 
 
-
     .item-button
       margin: $button-margin
       float: right
 
-.is-button
-  cursor: pointer
+
+.slide-up-enter-active,
+.slide-up-leave-active
+  transition: all 0.25s ease-out
+
+
+.slide-up-enter-from
+  opacity: 0
+  transform: translateY(30px)
+
+
+.slide-up-leave-to
+  opacity: 0
+  transform: translateY(-30px)
+
