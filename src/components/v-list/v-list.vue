@@ -17,7 +17,7 @@
         </div>
         <div class="item-button">
           <img
-            alt = "boton favorito"
+            alt="boton favorito"
             class="is-button"
             :src="item.favorite?require('../../assets/icons/fav_active.svg'):require('../../assets/icons/fav_disabled.svg')"
             v-on:click.stop="setFavorite(k)"
