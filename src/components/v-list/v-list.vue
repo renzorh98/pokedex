@@ -45,3 +45,5 @@
 <style scoped lang="sass" src="./v-list.sass" />
 <!--eslint-disable-->
 <style scoped lang="sass" src="../../styles/general.sass" />
+<!--eslint-disable-->
+<style scoped lang="sass" src="../../styles/transition-efects.sass" />

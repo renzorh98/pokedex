@@ -9,6 +9,15 @@ import { Pokemon } from "@/models/pokemon";
 import * as types from "@/store/types";
 import * as pokemonApi from "@/services/pokemonApi";
 
+const POKEMON_BASE = {
+  name: "",
+  weight: 0,
+  height: 0,
+  image: "",
+  types: [],
+  favorite: false,
+};
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default defineComponent({
   components: {
@@ -28,14 +37,7 @@ export default defineComponent({
     const filterList = ref();
     const favList = ref(Array<Pokemon>());
     const pokemons = ref(Array<Pokemon>());
-    const pokemon = ref({
-      name: "",
-      weight: 0,
-      height: 0,
-      image: "",
-      types: [],
-      favorite: false,
-    });
+    const pokemon = ref(POKEMON_BASE);
 
     const getFavList = () => {
       favList.value = store.getters.getFavoritesList;
@@ -49,6 +51,11 @@ export default defineComponent({
       getPokemonByUrl(url).then(() => {
         flagModal.value = true;
       });
+    };
+
+    const closeModal = () => {
+      pokemon.value = POKEMON_BASE;
+      flagModal.value = false;
     };
 
     const setListContent = (type: string) => {
@@ -105,24 +112,17 @@ export default defineComponent({
     };
 
     const getPokemonByUrl = async (url: string) => {
-      await pokemonApi
-        .get(url)
-        .then((response) => {
-          const fav_value = isFavorite(favList.value, response.data.name);
-          pokemon.value = {
-            name: response.data.name,
-            weight: response.data.weight,
-            height: response.data.height,
-            types: response.data.types,
-            image:
-              response.data.sprites.other["official-artwork"].front_default,
-            favorite: fav_value,
-          };
-          console.log(pokemon.value);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
+      await pokemonApi.get(url).then((response) => {
+        const fav_value = isFavorite(favList.value, response.data.name);
+        pokemon.value = {
+          name: response.data.name,
+          weight: response.data.weight,
+          height: response.data.height,
+          types: response.data.types,
+          image: response.data.sprites.other["official-artwork"].front_default,
+          favorite: fav_value,
+        };
+      });
     };
 
     watch(filter, (val) => {
@@ -162,6 +162,7 @@ export default defineComponent({
 
       updateItemByName,
       openModal,
+      closeModal,
       updateItemByObject,
       setListContent,
     };

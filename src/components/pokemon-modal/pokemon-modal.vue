@@ -39,13 +39,24 @@
     <template v-slot:footer>
       <div class="pokemon-footer">
         <v-button class="on-left" v-on:click="copyToClipboard">Share to my friends</v-button>
-        <img
-          alt="favorite icon"
-          class="on-right is-button"
-          :src="
-            pokemon.favorite ? require('../../assets/icons/fav_active.svg') : require('../../assets/icons/fav_disabled.svg')
+        <Transition name="slide-up" mode="out-in">
+          <img
+            v-if="pokemon.favorite"
+            alt="favorite icon"
+            class="on-right is-button"
+            :src="
+            require('../../assets/icons/fav_active.svg')
           "
-          v-on:click="setFavorite(pokemon)" />
+            v-on:click="setFavorite(pokemon)" />
+          <img
+            v-else-if="!pokemon.favorite"
+            alt="favorite icon"
+            class="on-right is-button"
+            :src="
+            require('../../assets/icons/fav_disabled.svg')
+          "
+            v-on:click="setFavorite(pokemon)" />
+        </Transition>
       </div>
     </template>
   </v-modal>
@@ -57,3 +68,5 @@
 <style scoped lang="sass" src="./pokemon-modal.sass" />
 <!--eslint-disable-->
 <style scoped lang="sass" src="../../styles/general.sass" />
+<!--eslint-disable-->
+<style scoped lang="sass" src="../../styles/transition-efects.sass" />

@@ -20,7 +20,7 @@
       </v-button>
     </div>
   </div>
-  <pokemon-modal :showModal="flagModal" :pokemon="pokemon" v-on:close="flagModal = false"
+  <pokemon-modal :showModal="flagModal" :pokemon="pokemon" v-on:close="closeModal"
                  v-on:setFavorite="updateItemByObject"></pokemon-modal>
   <loading :show="flagLoading"></loading>
 
