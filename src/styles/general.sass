@@ -1,7 +1,7 @@
 @import "src/styles/variables.sass"
 
 .view-wrap
-  height: 100%
+  height: $per-100
   display: inline-flex
   flex-direction: column
 
@@ -36,10 +36,10 @@ p
   margin: 0
 
 
-@media screen and (max-width: 700px)
+@media screen and (max-width: $media-screen)
   .view-wrap
     width: 315px
 
-@media screen and (min-width: 700px)
+@media screen and (min-width: $media-screen)
   .view-wrap
     width: 570px
