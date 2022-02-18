@@ -6,9 +6,5 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    blur: {
-      type: Boolean,
-      default: false,
-    },
   },
 });

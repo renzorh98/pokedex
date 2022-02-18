@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-  <div v-show="show" class="loading-mask">
+  <div v-if="show" class="loading-mask">
     <div class="loading-wrapper">
       <img
         alt="loading icon"

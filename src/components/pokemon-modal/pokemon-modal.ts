@@ -23,8 +23,9 @@ export default defineComponent({
     const emitClose = () => {
       emit("close");
     };
+
     const getTypes = computed(() => {
-      if (props.pokemon.types.length) {
+      if (props.pokemon.types.length != 0) {
         const arrayTypes = props.pokemon.types.map((value: any) => {
           return value.type.name;
         });

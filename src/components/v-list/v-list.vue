@@ -7,13 +7,14 @@
       </div>
     </template>
     <template v-else>
-      <div class="list-item" v-for="item in list" :key="item.name" v-on:click="seeDetails(item.url)">
+      <div data-test="list-item" class="list-item" v-for="item in list" :key="item.name" v-on:click="seeDetails(item.url)">
         <div class="item-desc">
-          <span class="name-text">{{ item.name }}</span>
+          <span data-test="name" class="name-text">{{ item.name }}</span>
         </div>
         <div class="item-button">
           <Transition name="slide-up" mode="out-in">
             <img
+              data-test="favorite"
               v-if="item.favorite"
               alt="boton favorito"
               class="is-button"
@@ -21,6 +22,7 @@
               v-on:click.stop="setFavorite(item.name)"
             />
             <img
+              data-test="no-favorite"
               v-else-if="!item.favorite"
               alt="boton favorito"
               class="is-button"

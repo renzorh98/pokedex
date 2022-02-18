@@ -1,6 +1,6 @@
 <!--eslint-disable-->
 <template>
-  <button class="button is-button slim" :class="classes">
+  <button test-data="button" class="button is-button slim" :class="classes">
     <slot />
   </button>
 </template>
