@@ -6,7 +6,6 @@
         <v-control :icon="'icon_search.svg'">
           <input class="input-control" type="text" placeholder="Search" v-model="filter">
         </v-control>
-
         <template v-if="view === 'all'">
           <v-list :list="filterList" v-on:updateItem="updateItemByIndex" v-on:setItem="openModal"></v-list>
         </template>
@@ -28,6 +27,7 @@
   </div>
   <pokemon-modal :showModal="flagModal" :pokemon="pokemon" v-on:close="flagModal = false"
                  v-on:setFavorite="updateItemByObject"></pokemon-modal>
+  <loading :show="flagLoading"></loading>
 
 </template>
 <!--eslint-disable-->
@@ -35,4 +35,4 @@
 <!--eslint-disable-->
 <style scoped lang="sass" src="./pokedex.sass" />
 <!--eslint-disable-->
-<style scoped lang="sass" src="@/styles/general.sass" />
+<style scoped lang="sass" src="../../../src/styles/general.sass" />

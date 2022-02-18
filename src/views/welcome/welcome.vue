@@ -9,7 +9,7 @@
         <p class="header-welcome">{{ title }}</p>
         <p class="description-welcome">{{ description }}</p>
       </div>
-      <v-button>Get started</v-button>
+      <v-button v-on:click="$router.push('pokedex')">Get started</v-button>
     </div>
   </div>
 </template>
@@ -18,4 +18,4 @@
 <!--eslint-disable-->
 <style scoped lang="sass" src="./welcome.sass" />
 <!--eslint-disable-->
-<style scoped lang="sass" src="@/styles/general.sass" />
+<style scoped lang="sass" src="../../../src/styles/general.sass" />

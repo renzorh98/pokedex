@@ -3,6 +3,7 @@ import VList from "@/components/v-list/v-list.vue";
 import VControl from "@/components/v-control/v-control.vue";
 import VButton from "@/components/v-button/v-button.vue";
 import PokemonModal from "@/components/pokemon-modal/pokemon-modal.vue";
+import Loading from "@/components/loading/loading.vue";
 import { useStore } from "vuex";
 import { Pokemon } from "@/models/pokemon";
 import * as types from "@/store/types";
@@ -15,9 +16,11 @@ export default defineComponent({
     VControl,
     PokemonModal,
     VButton,
+    Loading,
   },
   setup() {
     const flagModal = ref(false);
+    const flagLoading = ref(false);
     const view = ref("all");
     const filter = ref("");
     const filterList = ref();
@@ -68,15 +71,19 @@ export default defineComponent({
     };
 
     const getPokemons = async () => {
-      await pokemonApi
-        .get("/api/v2/pokemon?limit=151&offset=0")
-        .then((response) => {
-          pokemons.value = response.data.results.map((value: any) => {
-            const fav_value = isFavorite(favList.value, value.name);
-            return new Pokemon(value.name, value.url, fav_value);
+      flagLoading.value = true;
+      setTimeout(async () => {
+        await pokemonApi
+          .get("/api/v2/pokemon?limit=151&offset=0")
+          .then((response) => {
+            pokemons.value = response.data.results.map((value: any) => {
+              const fav_value = isFavorite(favList.value, value.name);
+              return new Pokemon(value.name, value.url, fav_value);
+            });
+            filterList.value = pokemons.value;
+            flagLoading.value = false;
           });
-          filterList.value = pokemons.value;
-        });
+      }, 3000);
     };
 
     const getPokemonByUrl = async (url: string) => {
@@ -147,6 +154,7 @@ export default defineComponent({
       pokemons,
       pokemon,
       flagModal,
+      flagLoading,
       filter,
       filterList,
       view,

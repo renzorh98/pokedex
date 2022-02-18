@@ -7,7 +7,7 @@
           <p class="title">Uh-oh!</p>
           <p class="description">You look lost on your journey!</p>
         </div>
-        <v-button size="normal">Go back home</v-button>
+        <v-button size="normal" v-on:click="$router.go()">Go back home</v-button>
       </div>
     </template>
     <template v-else>
@@ -33,4 +33,4 @@
 <!--eslint-disable-->
 <style scoped lang="sass" src="./v-list.sass" />
 <!--eslint-disable-->
-<style scoped lang="sass" src="@/styles/general.sass" />
+<style scoped lang="sass" src="../../styles/general.sass" />
