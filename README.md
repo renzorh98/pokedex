@@ -1,13 +1,12 @@
 # Pokédex
-El proyecto se encuentra desarrollado bajo el framework de Vue pero utilizando Typescript ya que nos permite desarrollar aplicaciones mucho mas robustas, permitiendonos detectar de manera temprana posibles errores que se suelen cometer durante el desarrollo de aplicaciones web ademas se uso Sass el cual es un preprocesador de CSS ya que segun sus caracteristicas es vital para proyectos a gran escala.
+El proyecto se encuentra desarrollado bajo el framework de Vue pero utilizando Typescript ya que nos permite desarrollar aplicaciones mucho más robustas, permitiéndonos detectar de manera temprana posibles errores que se suelen cometer durante el desarrollo de aplicaciones web ademas se uso Sass el cual es un preprocesador de CSS ya que según sus características es vital para proyectos a gran escala.
 
 Se utilizaron los siguientes paquetes:
 
 1. axios con la finalidad de realizar el consumo de los servicios de pokeapi.co.
-2. vue router el router principal de vue con la finalidad de realizar la navegacion dentro del proyecto.
-3. vuex y vuex-persist con la finalidad de realizar el almacenamiento de la informacion en el localstorage y el store de vue en busqueda de simular la persistencia de datos.
+2. vue router es el router principal de vue se usó con la finalidad de permitir la navegación dentro del proyecto.
+3. vuex y vuex-persist con la finalidad de realizar el almacenamiento de la información en el localstorage y el store de vue en búsqueda de simular la persistencia de datos.
 4. vue-jest y test-utils para poder realizar las pruebas unitarias sobre los componentes del proyecto.
-
 
 ## Project setup
 ```
