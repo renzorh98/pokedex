@@ -1,4 +1,4 @@
-# pokedex
+# Pokédex
 
 ## Project setup
 ```
@@ -18,6 +18,11 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Unit testing
+```
+npm run test:unit
 ```
 
 ### Customize configuration
