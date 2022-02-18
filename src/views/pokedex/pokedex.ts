@@ -19,8 +19,10 @@ export default defineComponent({
     Loading,
   },
   setup() {
+    const store = useStore();
     const flagModal = ref(false);
     const flagLoading = ref(false);
+    //view -> 'all' | 'favorite'
     const view = ref("all");
     const filter = ref("");
     const filterList = ref();
@@ -34,33 +36,6 @@ export default defineComponent({
       types: [],
       favorite: false,
     });
-    const store = useStore();
-
-    const updateItemByName = (name: string) => {
-      const pokemons_index = pokemons.value.findIndex(
-        (element) => element.name === name
-      );
-
-      updateItem(pokemons_index);
-    };
-
-    const updateItemByObject = (item: any) => {
-      const index = pokemons.value.findIndex(
-        (element: Pokemon) => element.name === item.name
-      );
-      pokemon.value.favorite = !pokemon.value.favorite;
-      updateItem(index);
-    };
-
-    const updateItem = (index: number) => {
-      pokemons.value[index].favorite = !pokemons.value[index].favorite;
-      if (pokemons.value[index].favorite) {
-        store.commit(types.ADD_FAVORITE_POKEMON, pokemons.value[index]);
-      } else {
-        store.commit(types.DELETE_FAVORITE_POKEMON, pokemons.value[index]);
-      }
-      getFavList();
-    };
 
     const getFavList = () => {
       favList.value = store.getters.getFavoritesList;
@@ -68,6 +43,49 @@ export default defineComponent({
 
     const isFavorite = (favList: Array<any>, pokemon_name: string) => {
       return favList.filter((val) => val.name === pokemon_name).length != 0;
+    };
+
+    const openModal = (url: string) => {
+      getPokemonByUrl(url).then(() => {
+        flagModal.value = true;
+      });
+    };
+
+    const setListContent = (type: string) => {
+      if (view.value !== type) {
+        view.value = type;
+        if (type === "all") {
+          filterList.value = pokemons.value;
+        } else if (type === "favorite") {
+          filterList.value = favList.value;
+        }
+        filter.value = "";
+      }
+    };
+
+    const updateItemByName = (name: string) => {
+      const pokemons_index = pokemons.value.findIndex(
+        (element) => element.name === name
+      );
+      updateItemFavoriteList(pokemons_index);
+    };
+
+    const updateItemByObject = (item: any) => {
+      const index = pokemons.value.findIndex(
+        (element: Pokemon) => element.name === item.name
+      );
+      pokemon.value.favorite = !pokemon.value.favorite;
+      updateItemFavoriteList(index);
+    };
+
+    const updateItemFavoriteList = (index: number) => {
+      pokemons.value[index].favorite = !pokemons.value[index].favorite;
+      if (pokemons.value[index].favorite) {
+        store.commit(types.ADD_FAVORITE_POKEMON, pokemons.value[index]);
+      } else {
+        store.commit(types.DELETE_FAVORITE_POKEMON, pokemons.value[index]);
+      }
+      getFavList();
     };
 
     const getPokemons = async () => {
@@ -105,24 +123,6 @@ export default defineComponent({
         .catch((error) => {
           console.log(error.response);
         });
-    };
-
-    const openModal = (url: string) => {
-      getPokemonByUrl(url).then(() => {
-        flagModal.value = true;
-      });
-    };
-
-    const setListContent = (type: string) => {
-      if (view.value !== type) {
-        view.value = type;
-        if (type === "all") {
-          filterList.value = pokemons.value;
-        } else if (type === "favorite") {
-          filterList.value = favList.value;
-        }
-        filter.value = "";
-      }
     };
 
     watch(filter, (val) => {
