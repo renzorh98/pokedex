@@ -8,6 +8,7 @@ import { Pokemon } from "@/models/pokemon";
 import * as types from "@/store/types";
 import * as pokemonApi from "@/services/pokemonApi";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default defineComponent({
   components: {
     VList,
@@ -39,7 +40,7 @@ export default defineComponent({
 
       updateItem(pokemons_index);
     };
-    /* eslint-disable @typescript-eslint/no-explicit-any */
+
     const updateItemByObject = (item: any) => {
       const index = pokemons.value.findIndex(
         (element: Pokemon) => element.name === item.name
@@ -47,7 +48,7 @@ export default defineComponent({
       pokemon.value.favorite = !pokemon.value.favorite;
       updateItem(index);
     };
-    /* eslint-enable @typescript-eslint/no-explicit-any */
+
     const updateItem = (index: number) => {
       pokemons.value[index].favorite = !pokemons.value[index].favorite;
       if (pokemons.value[index].favorite) {
@@ -61,13 +62,11 @@ export default defineComponent({
     const getFavList = () => {
       favList.value = store.getters.getFavoritesList;
     };
-    /* eslint-disable @typescript-eslint/no-explicit-any */
+
     const isFavorite = (favList: Array<any>, pokemon_name: string) => {
       return favList.filter((val) => val.name === pokemon_name).length != 0;
     };
-    /* eslint-enable @typescript-eslint/no-explicit-any */
 
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     const getPokemons = async () => {
       await pokemonApi
         .get("/api/v2/pokemon?limit=151&offset=0")
@@ -79,7 +78,6 @@ export default defineComponent({
           filterList.value = pokemons.value;
         });
     };
-    /* eslint-enable @typescript-eslint/no-explicit-any */
 
     const getPokemonByUrl = async (url: string) => {
       await pokemonApi

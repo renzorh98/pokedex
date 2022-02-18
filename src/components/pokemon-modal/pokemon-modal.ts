@@ -2,6 +2,7 @@ import { computed, defineComponent } from "vue";
 import VModal from "@/components/v-modal/v-modal.vue";
 import VButton from "@/components/v-button/v-button.vue";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default defineComponent({
   components: {
     VModal,
@@ -23,8 +24,6 @@ export default defineComponent({
       emit("close");
     };
     const getTypes = computed(() => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       if (props.pokemon.types.length) {
         const arrayTypes = props.pokemon.types.map((value: any) => {
           return value.type.name;
@@ -35,13 +34,17 @@ export default defineComponent({
     });
 
     const copyToClipboard = () => {
-      const pokemon_string=`Name: ${props.pokemon.name}\nWeight: ${props.pokemon.weight/10}\nHeight: ${props.pokemon.height/10}\nTypes: ${ getTypes.value }\nImage: ${ props.pokemon.image }`
-      navigator.clipboard.writeText(pokemon_string)
-    }
+      const pokemon_string = `Name: ${props.pokemon.name}\nWeight: ${
+        props.pokemon.weight / 10
+      }\nHeight: ${props.pokemon.height / 10}\nTypes: ${
+        getTypes.value
+      }\nImage: ${props.pokemon.image}`;
+      navigator.clipboard.writeText(pokemon_string);
+    };
 
     const setFavorite = (pokemon: any) => {
-      emit("setFavorite", pokemon)
-    }
+      emit("setFavorite", pokemon);
+    };
 
     return {
       emitClose,
