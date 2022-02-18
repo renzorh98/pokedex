@@ -3,11 +3,7 @@ export class Pokemon {
   url: string;
   favorite: boolean;
 
-  constructor(
-    _name: string,
-    _url: string,
-    _favorite: boolean,
-  ) {
+  constructor(_name: string, _url: string, _favorite: boolean) {
     this.name = _name;
     this.url = _url;
     this.favorite = _favorite;

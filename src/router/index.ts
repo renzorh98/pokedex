@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Welcome from "../views/welcome/welcome.vue";
 import Pokedex from "../views/pokedex/pokedex.vue";
+import NotFound from "../views/404/404.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,6 +13,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/pokedex",
     name: "Pokedex",
     component: Pokedex,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: NotFound,
   },
 ];
 

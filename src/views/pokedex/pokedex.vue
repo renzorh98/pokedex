@@ -6,7 +6,9 @@
         <v-control :icon="'icon_search.svg'">
           <input class="input-control" type="text" placeholder="Search" v-model="filter">
         </v-control>
-        <v-list :list="filterList" v-on:updateItem="updateItemByName" v-on:setItem="openModal"></v-list>
+        <v-list :list="filterList" v-on:updateItem="updateItemByName" v-on:setItem="openModal">
+          <v-not-found></v-not-found>
+        </v-list>
       </div>
     </div>
   </div>

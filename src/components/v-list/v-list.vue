@@ -2,12 +2,8 @@
 <template>
   <div class="list-container" style="overflow-y: auto;">
     <template v-if="list.length === 0">
-      <div :style="'height: 400px'">
-        <div class="message-container">
-          <p class="title">Uh-oh!</p>
-          <p class="description">You look lost on your journey!</p>
-        </div>
-        <v-button size="normal" v-on:click="$router.push('/')">Go back home</v-button>
+      <div class="advertise-container">
+        <slot></slot>
       </div>
     </template>
     <template v-else>

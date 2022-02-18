@@ -2,7 +2,6 @@
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
-
         <div>
           <slot name="header"></slot>
         </div>
@@ -12,7 +11,6 @@
         <div>
           <slot name="footer"></slot>
         </div>
-
       </div>
     </div>
   </div>

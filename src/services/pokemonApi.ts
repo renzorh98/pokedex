@@ -1,13 +1,10 @@
 import * as constantes from "./HOSTSERVER";
 import axios, { AxiosRequestConfig } from "axios";
-import { useStore } from "vuex";
-import { Pokemon } from "@/models/pokemon";
-
-const store = useStore();
 
 const service = axios.create({
   baseURL: constantes.POKEMON_API_SERVER,
 });
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const get = async (
   url: string,
   params: any = {},

@@ -2,6 +2,7 @@ import { defineComponent, onMounted, ref, watch } from "vue";
 import VList from "@/components/v-list/v-list.vue";
 import VControl from "@/components/v-control/v-control.vue";
 import VButton from "@/components/v-button/v-button.vue";
+import VNotFound from "@/components/v-not-found/v-not-found.vue";
 import PokemonModal from "@/components/pokemon-modal/pokemon-modal.vue";
 import Loading from "@/components/loading/loading.vue";
 import { useStore } from "vuex";
@@ -23,8 +24,9 @@ export default defineComponent({
   components: {
     VList,
     VControl,
-    PokemonModal,
     VButton,
+    VNotFound,
+    PokemonModal,
     Loading,
   },
   setup() {

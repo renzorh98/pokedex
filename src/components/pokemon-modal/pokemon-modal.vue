@@ -13,8 +13,6 @@
           <img alt="pokemon image" class="pokemon-image" :src="pokemon.image" />
         </div>
       </div>
-
-
     </template>
     <template v-slot:body>
       <div class="pokemon-body">
