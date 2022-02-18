@@ -7,7 +7,7 @@
           <p class="title">Uh-oh!</p>
           <p class="description">You look lost on your journey!</p>
         </div>
-        <v-button size="normal" v-on:click="$router.push('welcome')">Go back home</v-button>
+        <v-button size="normal" v-on:click="$router.push('/')">Go back home</v-button>
       </div>
     </template>
     <template v-else>
