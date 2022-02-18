@@ -3,16 +3,18 @@
 </template>
 
 <style lang="scss">
-html{
-  background: #F9F9F9;
+html {
+  background: #f9f9f9;
   overflow-y: scroll;
 }
-body{
-  background: #F9F9F9;
-  margin: 0px;
+
+body {
+  background: #f9f9f9;
+  margin: 0;
 }
+
 #app {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

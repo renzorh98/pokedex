@@ -17,7 +17,7 @@ export default defineComponent({
   },
   setup() {
     const flagModal = ref(false);
-    const view = ref(0);
+    const view = ref("all");
     const filter = ref("");
     const filterList = ref();
     const favList = ref(Array<Pokemon>());
@@ -39,7 +39,7 @@ export default defineComponent({
 
       updateItem(pokemons_index);
     };
-
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const updateItemByObject = (item: any) => {
       const index = pokemons.value.findIndex(
         (element: Pokemon) => element.name === item.name
@@ -47,7 +47,7 @@ export default defineComponent({
       pokemon.value.favorite = !pokemon.value.favorite;
       updateItem(index);
     };
-
+    /* eslint-enable @typescript-eslint/no-explicit-any */
     const updateItem = (index: number) => {
       pokemons.value[index].favorite = !pokemons.value[index].favorite;
       if (pokemons.value[index].favorite) {
@@ -61,11 +61,13 @@ export default defineComponent({
     const getFavList = () => {
       favList.value = store.getters.getFavoritesList;
     };
-
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const isFavorite = (favList: Array<any>, pokemon_name: string) => {
       return favList.filter((val) => val.name === pokemon_name).length != 0;
     };
+    /* eslint-enable @typescript-eslint/no-explicit-any */
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const getPokemons = async () => {
       await pokemonApi
         .get("/api/v2/pokemon?limit=151&offset=0")
@@ -77,6 +79,7 @@ export default defineComponent({
           filterList.value = pokemons.value;
         });
     };
+    /* eslint-enable @typescript-eslint/no-explicit-any */
 
     const getPokemonByUrl = async (url: string) => {
       await pokemonApi
@@ -105,25 +108,35 @@ export default defineComponent({
       });
     };
 
-    const setListContent = (type: number) => {
+    const setListContent = (type: string) => {
       if (view.value !== type) {
         view.value = type;
-        if (type === 0) {
+        if (type === "all") {
           filterList.value = pokemons.value;
-        } else if (type === 1) {
+        } else if (type === "favorite") {
           filterList.value = favList.value;
         }
-        filter.value = ''
+        filter.value = "";
       }
     };
 
     watch(filter, (val) => {
       if (val === "") {
-        filterList.value = pokemons.value;
+        if (view.value === "all") {
+          filterList.value = pokemons.value;
+        } else if (view.value === "favorite") {
+          filterList.value = favList.value;
+        }
       } else {
-        filterList.value = pokemons.value.filter((element) =>
-          element.name.includes(val.toLowerCase())
-        );
+        if (view.value === "all") {
+          filterList.value = pokemons.value.filter((element) =>
+            element.name.includes(val.toLowerCase())
+          );
+        } else if (view.value === "favorite") {
+          filterList.value = favList.value.filter((element) =>
+            element.name.includes(val.toLowerCase())
+          );
+        }
       }
     });
 

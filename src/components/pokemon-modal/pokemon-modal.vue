@@ -1,17 +1,18 @@
+<!--eslint-disable-->
 <template>
   <v-modal v-show="showModal">
     <template v-slot:header>
       <div class="pokemon-header">
         <img
-          class="modal-close is-button "
+          alt="close icon"
+          class="modal-close is-button"
           :src="require('../../assets/icons/close-modal.svg')"
           v-on:click="emitClose"
         />
         <div style="width: calc(100% - 82px); padding-left: 41px">
-          <img class="pokemon-image" :src="pokemon.image">
+          <img alt="pokemon image" class="pokemon-image" :src="pokemon.image" />
         </div>
       </div>
-
 
 
     </template>
@@ -20,34 +21,37 @@
         <div class="pokemon-detalle">
           <span class="label">Name:</span>&nbsp;&nbsp;<span class="pokemon-text">{{ pokemon.name }}</span>
         </div>
-        <hr class="separator"/>
+        <hr class="separator" />
         <div class="pokemon-detalle">
-          <span class="label">Weight:</span>&nbsp;&nbsp;<span class="pokemon-text">{{ pokemon.weight/10 }}</span>
+          <span class="label">Weight:</span>&nbsp;&nbsp;<span class="pokemon-text">{{ pokemon.weight / 10 }}</span>
         </div>
-        <hr class="separator"/>
+        <hr class="separator" />
         <div class="pokemon-detalle">
-          <span class="label">Height:</span>&nbsp;&nbsp;<span class="pokemon-text">{{ pokemon.height/10 }}</span>
+          <span class="label">Height:</span>&nbsp;&nbsp;<span class="pokemon-text">{{ pokemon.height / 10 }}</span>
         </div>
-        <hr class="separator"/>
+        <hr class="separator" />
         <div class="pokemon-detalle">
           <span class="label">Types:</span>&nbsp;&nbsp;<span class="pokemon-text">{{ getTypes }}</span>
         </div>
-        <hr class="separator"/>
+        <hr class="separator" />
       </div>
     </template>
     <template v-slot:footer>
       <div class="pokemon-footer">
         <v-button class="on-left" v-on:click="copyToClipboard">Share to my friends</v-button>
-        <img class="on-right is-button" :src="pokemon.favorite?require('../../assets/icons/fav_active.svg'):require('../../assets/icons/fav_disabled.svg')"
-             v-on:click="setFavorite(pokemon)">
+        <img
+          alt="favorite icon"
+          class="on-right is-button"
+          :src="
+            pokemon.favorite ? require('../../assets/icons/fav_active.svg') : require('../../assets/icons/fav_disabled.svg')
+          "
+          v-on:click="setFavorite(pokemon)" />
       </div>
-
     </template>
-
   </v-modal>
 
 </template>
-
+<!--eslint-disable-->
 <script lang="ts" src="./pokemon-modal.ts" />
-
+<!--eslint-disable-->
 <style scoped lang="sass" src="./pokemon-modal.sass" />

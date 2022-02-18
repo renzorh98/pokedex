@@ -1,3 +1,4 @@
+<!--eslint-disable-->
 <template>
   <div class="list-container" style="overflow-y: auto;">
     <template v-if="list.length === 0">
@@ -6,12 +7,8 @@
           <p class="title">Uh-oh!</p>
           <p class="description">You look lost on your journey!</p>
         </div>
-
         <v-button size="normal">Go back home</v-button>
-
       </div>
-
-
     </template>
     <template v-else>
       <div class="list-item" v-for="(item, k) in list" :key="k" v-on:click="seeDetails(item.url)">
@@ -20,6 +17,7 @@
         </div>
         <div class="item-button">
           <img
+            alt = "boton favorito"
             class="is-button"
             :src="item.favorite?require('../../assets/icons/fav_active.svg'):require('../../assets/icons/fav_disabled.svg')"
             v-on:click.stop="setFavorite(k)"
@@ -30,8 +28,9 @@
 
   </div>
 </template>
-
+<!--eslint-disable-->
 <script lang="ts" src="./v-list.ts" />
-
+<!--eslint-disable-->
 <style scoped lang="sass" src="./v-list.sass" />
+<!--eslint-disable-->
 <style scoped lang="sass" src="@/styles/general.sass" />
