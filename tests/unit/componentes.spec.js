@@ -142,7 +142,7 @@ describe("VList", () => {
     const elements = wrapper.findAll('[data-test="name"]');
     expect(elements.length).toBe(defaultProps.pokemons.length);
   });
-  test("VList should emit updateItem event whit pokemon's name as param when favorite or no favorite icon is clicked", () => {
+  test("VList should emit setFavorite event whit pokemon's name as param when favorite or no favorite icon is clicked", () => {
     const wrapper = mount(VList, {
       propsData: {
         list: defaultProps.pokemons,
@@ -151,7 +151,7 @@ describe("VList", () => {
 
     const fav = wrapper.get('[data-test="favorite"]');
     fav.trigger("click");
-    expect(wrapper.emitted("updateItem")[0][0]).toStrictEqual(
+    expect(wrapper.emitted("setFavorite")[0][0]).toStrictEqual(
       defaultProps.pokemons[0].name
     );
   });

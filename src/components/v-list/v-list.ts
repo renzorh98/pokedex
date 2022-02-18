@@ -11,19 +11,19 @@ export default defineComponent({
       default: () => [],
     },
   },
-  emits: ["updateItem", "setItem"],
+  emits: ["setFavorite", "setItem"],
   setup(props, { emit }) {
     const setFavorite = (name: string) => {
-      emit("updateItem", name);
+      emit("setFavorite", name);
     };
 
-    const seeDetails = (url: string) => {
+    const setItem = (url: string) => {
       emit("setItem", url);
     };
 
     return {
       setFavorite,
-      seeDetails,
+      setItem,
     };
   },
 });

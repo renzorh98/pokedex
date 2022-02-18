@@ -7,7 +7,7 @@
       </div>
     </template>
     <template v-else>
-      <div data-test="list-item" class="list-item" v-for="item in list" :key="item.name" v-on:click="seeDetails(item.url)">
+      <div data-test="list-item" class="list-item" v-for="item in list" :key="item.name" v-on:click="setItem(item.url)">
         <div class="item-desc">
           <span data-test="name" class="name-text">{{ item.name }}</span>
         </div>
