@@ -34,11 +34,7 @@ export default defineComponent({
     });
 
     const copyToClipboard = () => {
-      const pokemon_string = `Name: ${props.pokemon.name}\nWeight: ${
-        props.pokemon.weight / 10
-      }\nHeight: ${props.pokemon.height / 10}\nTypes: ${
-        getTypes.value
-      }\nImage: ${props.pokemon.image}`;
+      const pokemon_string = `Name: ${props.pokemon.name}, Weight: ${props.pokemon.weight / 10}, Height: ${props.pokemon.height / 10}, Types: ${getTypes.value}, Image: ${props.pokemon.image}`;
       navigator.clipboard.writeText(pokemon_string);
     };
 
